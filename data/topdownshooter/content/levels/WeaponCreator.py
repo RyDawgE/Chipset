@@ -10,7 +10,7 @@ from data.topdownshooter.content.objects.player.player import ShooterPlayer
 from data.topdownshooter.content.objects.shooterentity.shooterentity import ShooterEntity
 from data.topdownshooter.content.objects.weapon.hitmarker.hitmarker import Hitmarker
 from data.topdownshooter.content.objects.weapon.pickup.pickupweapon import PickupWeapon
-from data.topdownshooter.content.objects.weapon.weapons.weapons import SMG, AutomaticRifle, DevGun, ElectroLauncher, Enderpearl, GrenadeLauncher, LaserMachineGun, LingerTest, Revolver, RocketLauncher, Shotgun, SniperRifle, SpawnerWeapon, SplatGun
+from data.topdownshooter.content.objects.weapon.weapons.weapons import SMG, AutomaticRifle, DevGun, ElectroLauncher, Enderpearl, GrenadeLauncher, LaserMachineGun, Revolver, RocketLauncher, Shotgun, SniperRifle, SpawnerWeapon, SplatGun
 from data.topdownshooter.content.objects.widget.weaponcreationwidget import UpgradeSelector, UpgradeSwitchButton, WeaponCreatorWidget
 
 

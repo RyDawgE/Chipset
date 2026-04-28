@@ -32,7 +32,7 @@ class DevLevel(Level):
 
 
         #self.objectManager.add_object(ShooterEnemy(man=self.objectManager, pde=pde, position=[732/2, 412/2], weapon=LaserMachineGun))
-        itemlist = [SMG, AutomaticRifle, SniperRifle, LaserMachineGun, GrenadeLauncher, Shotgun, ElectroLauncher, SpawnerWeapon, Enderpearl, SplatGun, RocketLauncher, Revolver, ChainRifle, LaserPistol, Pistol, RiskGun, FlamePistol, LooseChange, AutoShotgun, Flamethrower, DartRifle, Starmada, AntiMatterRifle, Godray, Friendship, Biblizer, P90, Scorcher, InfinityRifle, Buckshot, Terminator]
+        itemlist = [SMG, AutomaticRifle, SniperRifle, LaserMachineGun, GrenadeLauncher, Shotgun, ElectroLauncher, SpawnerWeapon, Enderpearl, SplatGun, RocketLauncher, Revolver, ChainRifle, LaserPistol, Pistol, RiskGun, FlamePistol, LooseChange, AutoShotgun, Flamethrower, DartRifle, Starmada, AntiMatterRifle, Godray, Friendship, Biblizer, P90, Scorcher, InfinityRifle, Buckshot, Terminator, SpawnerWeapon]
 
         lm = self.objectManager.add_object(LevelLoader(man=self.objectManager, pde=pde, position=[320,300],level="room2"))
         chest = self.objectManager.add_object(Chest(man=self.objectManager, pde=pde, position=[320,-128], items=[DevGun]))
