@@ -9,7 +9,8 @@ from data.topdownshooter.content.objects.hazard.hole.hole import Hole
 from data.topdownshooter.content.objects.levelgenerator.level_generator import LevelGenerator
 from data.topdownshooter.content.objects.player.player import ShooterPlayer
 from data.topdownshooter.content.objects.turret.turret import Turret
-from data.topdownshooter.content.objects.weapon.weapons.weapons import DevGun, Pistol
+from data.topdownshooter.content.objects.weapon.weapons.weapon import WeaponData
+from data.topdownshooter.content.objects.weapon.weapons.weapons import DevGun, GrenadeLauncher, LaserMachineGun, LaserRifle, Pistol
 from data.topdownshooter.content.objects.widget.shooterwidget import ShooterWidget
 
 
@@ -32,12 +33,15 @@ class BossLevel(Level):
 
 
         x = self.pde.game.playerData
+        x.loadout = [WeaponData(LaserMachineGun), WeaponData(GrenadeLauncher)]
 
         p.weapons = x.loadout
 
         p.currentweapon = x.currentWeapon
         p.switchweapon(p.currentweapon)
         cam = self.objectManager.add_object(ShooterCamera(man=self.objectManager, pde=pde, position=p.position, target=p))
+        self.objectManager.add_object(Turret(man=self.objectManager, pde=pde, position=[110,-100]))
+        self.objectManager.add_object(Turret(man=self.objectManager, pde=pde, position=[360,-100]))
 
 
         
