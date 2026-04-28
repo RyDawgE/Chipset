@@ -149,7 +149,8 @@ class ShooterEntity(Actor):
 
     def die(self, killer):
         self.onDeathEvent.call(self, killer)
-        killer.owner.owner.onKillEvent.call(self)
+        if (killer.owner.owner is not None):
+            killer.owner.owner.onKillEvent.call(self)
         self.dead = True
         if killer is not None:
             rot = killer.rotation

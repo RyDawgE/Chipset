@@ -148,7 +148,7 @@ class Grenade(Bullet):
                             self.collide(self, "Top")
 
     def explode(self):
-        self.man.add_object(obj=Explosion(man=self.man, pde=self.pde, owner=self, position=self.rect.center, scale=[128, 128]))
+        self.man.add_object(obj=Explosion(man=self.man, pde=self.pde, owner=self.owner, position=self.rect.center, scale=[128, 128]))
 
 class LaserBullet(Bullet):
     def __init__(self, man, pde, owner=None, position=[0, 0], target=[0, 0]):
@@ -275,7 +275,7 @@ class Electrosphere(Bullet):
             self.mines[self.explodeticks].explode()
             self.explodeticks += 1
         else:
-            e = self.man.add_object(obj=self.explosion(man=self.man, pde=self.pde, owner=self, position = self.position, scale = [128, 128]))
+            e = self.man.add_object(obj=self.explosion(man=self.man, pde=self.pde, owner=self.owner, position = self.position, scale = [128, 128]))
             self.deconstruct()
 
 class SplatBullet(Bullet):
@@ -317,7 +317,7 @@ class Rocket(Bullet):
     def hit(self, object):
         if isinstance(object, se.ShooterEntity) or isinstance(object, Tile):
             if not self.spawnedRocket:
-                self.man.add_object(obj=Explosion(man=self.man, pde=self.pde, owner=self, position=self.rect.center, scale=[128, 128]))
+                self.man.add_object(obj=Explosion(man=self.man, pde=self.pde, owner=self.owner, position=self.rect.center, scale=[128, 128]))
                 self.spawnedRocket = True
         return super().hit(object)
 
