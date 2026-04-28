@@ -3,6 +3,7 @@ from types import NoneType
 from data.engine.level.level import Level
 from data.topdownshooter.content.levels.levelloader.levelloader import LevelLoader
 from data.topdownshooter.content.levels.levelloader.room import Room
+from data.topdownshooter.content.objects.camera.shootercam import ShooterCamera
 from data.topdownshooter.content.objects.enemy.boss_enemy import BossEnemy
 from data.topdownshooter.content.objects.hazard.hole.hole import Hole
 from data.topdownshooter.content.objects.levelgenerator.level_generator import LevelGenerator
@@ -36,6 +37,8 @@ class BossLevel(Level):
 
         p.currentweapon = x.currentWeapon
         p.switchweapon(p.currentweapon)
+        cam = self.objectManager.add_object(ShooterCamera(man=self.objectManager, pde=pde, position=p.position, target=p))
+
 
         
 

@@ -12,6 +12,9 @@ class UpgradeSlot(Actor):
         self.upgradedata = json.load(open(r"data\topdownshooter\data\upgradedata.json"))
 
         super().__init__(man, pde)
+
+    def construct(self):
+        super().construct()
         self.components["Sprite"] = SpriteComponent(owner=self, sprite=r'data\topdownshooter\assets\sprites\objects\upgrades\blank.png', layer=0)
 
     def click(self, button):
@@ -32,8 +35,11 @@ class UpgradeSwitchButton(Actor):
         self.side = side
         self.slot = slot
         self.widget = widget
-        self.components["Sprite"] = SpriteComponent(owner=self, sprite='', layer=0)
         self.components["Button"] = Button(owner=self, bind=self.click)
+
+    def construct(self):
+        super().construct()
+        self.components["Sprite"] = SpriteComponent(owner=self, sprite='', layer=0)
 
     def click(self):
         self.slot.click(self)
@@ -45,9 +51,12 @@ class UpgradeSelector(Actor):
         self.widget = widget
         self.upgradeindex = 0
         super().__init__(man, pde)
+
+    def construct(self):
+        super().construct()
         self.slot = self.man.add_object(UpgradeSlot(man=self.man, pde=self.pde, position=self.rect.center, selector=self))
-        self.rightbutton = self.man.add_object(UpgradeSwitchButton(man=self.man, pde=self.pde, position=[self.rect.centerx + 75, self.rect.centery], side='right', slot=self.slot, widget=widget))
-        self.leftbutton = self.man.add_object(UpgradeSwitchButton(man=self.man, pde=self.pde, position=[self.rect.centerx - 75, self.rect.centery], side='left', slot=self.slot, widget=widget))
+        self.rightbutton = self.man.add_object(UpgradeSwitchButton(man=self.man, pde=self.pde, position=[self.rect.centerx + 75, self.rect.centery], side='right', slot=self.slot, widget=self.widget))
+        self.leftbutton = self.man.add_object(UpgradeSwitchButton(man=self.man, pde=self.pde, position=[self.rect.centerx - 75, self.rect.centery], side='left', slot=self.slot, widget=self.widget))
 
 class WeaponSlot(Actor):
     def __init__(self, man, pde, position=[0, 0], selector=None):
@@ -58,6 +67,9 @@ class WeaponSlot(Actor):
         self.weapondata = json.load(open(r"data\topdownshooter\data\weapondata.json"))
 
         super().__init__(man, pde)
+
+    def construct(self):
+        super().construct()
         self.components["Sprite"] = SpriteComponent(owner=self, sprite=self.weapondata["AutomaticRifle"]["spriteinfo"]["sprite"], layer=0)
 
     def click(self, button):
@@ -79,6 +91,9 @@ class WeaponCreatorWidget(Actor):
         self.allweapons = ["AutomaticRifle", "SMG", "SniperRifle"]
         self.availableupgrades = self.allupgrades
         super().__init__(man, pde)
+
+    def construct(self):
+        super().construct()
         self.midslot = self.man.add_object(UpgradeSelector(man=self.man, pde=self.pde, position=self.rect.center, widget=self))
         self.rightslot = self.man.add_object(UpgradeSelector(man=self.man, pde=self.pde, position=[self.rect.centerx + 200, self.rect.centery], widget=self))
         self.leftslot = self.man.add_object(UpgradeSelector(man=self.man, pde=self.pde, position=[self.rect.centerx - 200, self.rect.centery], widget=self))

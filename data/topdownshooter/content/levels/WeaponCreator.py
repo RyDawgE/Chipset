@@ -14,7 +14,7 @@ from data.topdownshooter.content.objects.weapon.weapons.weapons import SMG, Auto
 from data.topdownshooter.content.objects.widget.weaponcreationwidget import UpgradeSelector, UpgradeSwitchButton, WeaponCreatorWidget
 
 
-class WeaponCreator(Level):
+class WeaponCreatorLevel(Level):
     def __init__(self, man, pde) -> None:
         self.ticks = 0
         super().__init__(man, pde)

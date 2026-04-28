@@ -10,7 +10,7 @@
 
         "network":
         {
-            "connectToServer": true,
+            "connectToServer": false,
             "address": "localhost"
         }
     }
